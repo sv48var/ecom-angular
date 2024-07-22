@@ -1,0 +1,104 @@
+<div class="products-container">
+  <div class="header">
+    <h2>Products/{{ gender }}</h2>
+    <div class="actions">
+      <button class="filter-button">
+        <i class="fas fa-filter"></i> Filter
+      </button>
+      <label for="sort">Sort:</label>
+      <select id="sort" (change)="handleSortChange($event)" [(ngModel)]="sortOrder">
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="product-cards">
+    <div *ngIf="loading; else productCardsLoading">
+      <my-project-loader *ngIf="loading"></my-project-loader>
+    </div>
+    <ng-template #productCardsLoading>
+      <div *ngFor="let product of sortShoes(shoes)">
+        <a [routerLink]="['/products', gender, product.sku]" style="text-decoration: none;">
+          <div class="product-card">
+            <div class="product-image">
+              <img *ngIf="product.images && product.images.split('~').length > 0"
+                   [src]="product.images.split('~')[0]" [alt]="product.name" />
+            </div>
+            <div class="product-details">
+              <h3>{{ product.name }}</h3>
+              <div class="ratings-section">
+                <i class="fa-solid fa-star" *ngFor="let _ of [1, 2, 3, 4]"></i>
+                <i class="fa-regular fa-star"></i>
+                <span class="rating">4.1/5</span>
+              </div>
+              <div class="price-section">
+                <p class="present-price"> &#8377;{{ product.price }}</p>
+              </div>
+              <div class="bottom-buttons">
+                <i class="fa-regular fa-heart like-btn"></i>
+                <button (click)="addToCart(product.sku, $event)" class="add-to-cart-btn">
+                  <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>                
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="products-container">
+  <div class="header">
+    <h2>Products/{{ gender }}</h2>
+    <div class="actions">
+      <button class="filter-button">
+        <i class="fas fa-filter"></i> Filter
+      </button>
+      <label for="sort">Sort:</label>
+      <select id="sort" (change)="handleSortChange($event)" [(ngModel)]="sortOrder">
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="product-cards">
+    <div *ngIf="loading; else productCardsLoading">
+      <my-project-loader *ngIf="loading"></my-project-loader>
+    </div>
+    <ng-template #productCardsLoading>
+      <div *ngFor="let product of sortShoes(shoes)">
+        <a [routerLink]="['/products', gender, product.sku]" style="text-decoration: none;">
+          <div class="product-card">
+            <div class="product-image">
+              <img *ngIf="product.images && product.images.split('~').length > 0"
+                   [src]="product.images.split('~')[0]" [alt]="product.name" />
+            </div>
+            <div class="product-details">
+              <h3>{{ product.name }}</h3>
+              <div class="ratings-section">
+                <i class="fa-solid fa-star" *ngFor="let _ of [1, 2, 3, 4]"></i>
+                <i class="fa-regular fa-star"></i>
+                <span class="rating">4.1/5</span>
+              </div>
+              <div class="price-section">
+                <p class="present-price"> &#8377;{{ product.price }}</p>
+              </div>
+              <div class="bottom-buttons">
+                <i class="fa-regular fa-heart like-btn"></i>
+                <button class="add-to-cart-btn" (click)="addToCart(product.sku)">
+                  <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </ng-template>
+  </div>
+</div> -->

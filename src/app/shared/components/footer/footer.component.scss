@@ -1,0 +1,38 @@
+.footer {
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-link {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .careof{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .navbar-brand {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5rem;
+    color: #ffffff; 
+    text-decoration: none !important;
+    padding: 5px;
+  }

@@ -1,0 +1,30 @@
+<my-project-loader *ngIf="loading"></my-project-loader>
+<div *ngIf="!loading shoes">
+  <div class="product-detail-container">
+    <div class="product-detail">
+      <ngx-slick-carousel class="product-image" [config]="slickConfig">
+        <div *ngFor="let image of shoes.shoe.images.split('~')">
+          <img [src]="image.trim()" alt="Product Image" />
+        </div>
+      </ngx-slick-carousel>
+      <div class="product-info">
+        <h2>{{ shoes.shoe.name }}</h2>
+        <div class="ratings-section">
+        </div>
+        <div class="price-section">
+          MRP: <p class="present-price">&#8377;{{ shoes.shoe.price }}</p>
+        </div>
+        <div class="action-section">
+          <button (click)="addToCart(shoes.shoe.sku)" class="add-to-cart-btn">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+          <i class="fas fa-heart icon"></i>
+        </div>
+        <div class="description">
+          <h3>Description</h3>
+          <p>{{ shoes.shoe.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

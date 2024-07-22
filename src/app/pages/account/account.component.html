@@ -1,0 +1,54 @@
+<div class="account-page-container">
+
+    <div class="options-card">
+      <button (click)="changeOption('profile')"><i class="fa-solid fa-user"></i>Profile</button>
+      <button (click)="changeOption('orders')"><i class="fa-solid fa-cart-shopping"></i>My Orders</button>
+      <button (click)="changeOption('payments')"><i class="fa-solid fa-credit-card"></i>Payments</button>
+      <button (click)="changeOption('wishlist')"><i class="fa-solid fa-heart"></i>My Wishlist</button>
+      <button (click)="changeOption('logout')"><i class="fa-solid fa-power-off"></i>Logout</button>
+    </div>
+  
+    <div class="details-card">
+  
+      <h3 *ngIf="selectedOption === 'profile'">Profile Details</h3>
+      <div *ngIf="selectedOption === 'profile'">
+        <div>
+          <img src="https://www.nykaa.com/assets/mobile/images/my_profile/default_avatar.svg" />
+          <div>
+            <p>Name: {{ userData.username }}</p>
+            <p>Email: {{ userData.email }}</p>
+            <p>Date of Joining: {{ formattedDateOfJoining }}</p>
+          </div>
+        </div>
+      </div>
+  
+      <h3 *ngIf="selectedOption === 'orders'">My Orders</h3>
+      <div *ngIf="selectedOption === 'orders'">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <p>No recent orders</p>
+        <a href="/products/Men">Start Shopping</a>
+      </div>
+  
+      <h3 *ngIf="selectedOption === 'payments'">Payments</h3>
+      <div *ngIf="selectedOption === 'payments'">
+        <p>You do not have saved payment options.</p>
+      </div>
+  
+      <h3 *ngIf="selectedOption === 'wishlist'">My Wishlist</h3>
+      <div *ngIf="selectedOption === 'wishlist'">
+        <i class="fa-solid fa-heart"></i>
+        <h2>NO ITEMS IN THE WISHLIST</h2>
+        <p>Add now, Buy Later.<br />
+          Save your favorite beauty items here!</p>
+        <a href="/products/Women">Start Shopping</a>
+      </div>
+  
+      <h3 *ngIf="selectedOption === 'logout'">Logout</h3>
+      <div *ngIf="selectedOption === 'logout'">
+        <p>Sad to see you go</p>
+        <!-- Call the logout function when the user clicks the button -->
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+  

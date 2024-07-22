@@ -1,0 +1,47 @@
+.navbar {
+    background: linear-gradient(to right, #141e30, #243b55); 
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+
+  .navbar-brand {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5rem;
+    color: #ffffff; 
+    text-decoration: none !important;
+    padding: 5px;
+  }
+  
+  .nav-link {
+    color: #ffffff !important;
+    font-family: 'Lato', sans-serif;
+    transition: color 0.3s ease;
+    text-decoration: none !important;
+  }
+  
+  .nav-link:hover {
+    color: #3498db !important;
+  }
+  
+  .navbar-nav .nav-item.dropdown:hover .nav-link {
+    color: #3498db !important;
+  }
+  
+  .dropdown-menu {
+    background: linear-gradient(to right, #141e30, #243b55);
+    border: none;
+  }
+  
+  .dropdown-item {
+    color: #ffffff !important;
+    font-family: 'Lato', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none !important;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #3498db;
+    color: #2c3e50 !important;
+  }
+  
+  

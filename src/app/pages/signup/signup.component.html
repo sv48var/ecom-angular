@@ -1,0 +1,32 @@
+<div class="signup-container">
+    <div class="background-shape">
+      <div class="signup-form">
+        <div class="image-container">
+          <img src="/assets/undraw_file_sync_ot38.svg" alt="Signup Image">
+        </div>
+        <form (submit)="signUp()">
+          <div class="form-heading">Sign Up</div>
+          <div class="form-input">
+            <i class="fas fa-user"></i>
+            <input type="text" [(ngModel)]="username" id="username" name="username" placeholder="Username" required>
+          </div>
+          <div class="form-input">
+            <i class="fas fa-envelope"></i>
+            <input type="email" [(ngModel)]="email" id="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-input">
+            <i class="fas fa-lock"></i>
+            <input type="password" [(ngModel)]="password" id="password" name="password" placeholder="Password" required>
+            <span class="password-toggle"><i class="fas" [ngClass]="{'fa-eye': showPassword, 'fa-eye-slash': !showPassword}"></i></span>
+          </div>
+          <button type="submit" [disabled]="loading">Sign Up</button>
+          <my-project-loader *ngIf="loading"></my-project-loader>
+          <div class="form-link">
+            <a href="/login">Already have an account? Login here</a>
+          </div>
+          <div class="form-error" *ngIf="signupError">{{signupError}}</div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
